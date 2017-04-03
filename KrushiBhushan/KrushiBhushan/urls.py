@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from .views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^add/product/$', add_product),
+    url(r'^all/product/$', get_all_products),
+    url(r'^slider/$', slider),
+    url(r'^gallery/$', gallery),
 ]
