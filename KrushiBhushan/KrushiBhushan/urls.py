@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^get/team/member/',get_team),
     url(r'^add/contact/',add_contact),
     url(r'^get/contact/',get_contact),
+   
 
 ]

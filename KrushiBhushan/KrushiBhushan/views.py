@@ -30,11 +30,12 @@ def get_team(request):
 	
 		employee = {	"employee":team.employee,
 						"qulification" : team.qulification,
-						"employee_pic" : team.employee_pic
+						"employee_pic" : team.employee_pic.url
 
 		}
 		team_list.append(employee)
-	return HttpResponse(json.dumps({"validation":"Team Details:","status":True,"team_list":repr(team_list)}), content_type="application/json")
+	print ('********************'),team_list
+	return HttpResponse(json.dumps({"validation":"Team Details:","status":True,"team_list":team_list}), content_type="application/json")
 
 def add_contact(request):
 	jsonobj = json.loads(request.body)
@@ -68,5 +69,5 @@ def get_contact(request):
 
 		}
 		contact_list.append(contact_detail)
-	return HttpResponse(json.dumps({"validation":"Contact list Details:","status":True,"contact_detail ":contact_list}), content_type="application/json")
+	return HttpResponse(json.dumps({"validation":"Contact list Details:","status":True,"contact_detail":contact_list}), content_type="application/json")
 

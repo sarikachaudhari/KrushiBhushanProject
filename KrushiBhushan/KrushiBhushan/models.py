@@ -19,8 +19,7 @@ class Contact(models.Model):
 
 class Menu(models.Model):
 
-	
 	title = models.CharField(null=True,max_length=10)
-
+	
 	def __unicode__(self):
 		return str(self.title)
