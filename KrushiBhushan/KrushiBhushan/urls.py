@@ -23,4 +23,9 @@ urlpatterns = [
     url(r'^all/product/$', get_all_products),
     url(r'^slider/$', slider),
     url(r'^gallery/$', gallery),
+    url(r'^add/team/',AddTeam),
+    url(r'^get/team/member/',get_team),
+    url(r'^add/contact/',add_contact),
+    url(r'^get/contact/',get_contact),
+
 ]

@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.core.files import File  # you need this somewhere
 import urllib
 
@@ -13,6 +12,7 @@ class Products(models.Model):
 	def __unicode__(self):
 		return self.product_name
 
+
 class Image(models.Model):
 	IMG_TYPES = (
 		(1,'banner'),
@@ -23,3 +23,29 @@ class Image(models.Model):
 
 	def __unicode__(self):
 		return str(self.img_type)
+
+
+class Team(models.Model):
+	employee = models.CharField(null=True,max_length=20)
+	qulification = models.CharField(null=True,max_length=20)
+	employee_pic = models.ImageField(null=True,blank=True)
+
+ 	def __unicode__(self):
+		return str(self.employee) 
+
+
+class Contact(models.Model):
+	email = models.TextField(max_length=30,null=True)
+	address = models.TextField(max_length=50,null=True)
+	mobno = models.IntegerField(null=True,unique=True)
+	
+	def __unicode__(self):
+		return str(self.email) + '_' + str(self.mobno) + '_' + str(self.address)
+
+
+class Menu(models.Model):
+
+	title = models.CharField(null=True,max_length=10)
+	
+	def __unicode__(self):
+		return str(self.title)
