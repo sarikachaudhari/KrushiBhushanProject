@@ -3,7 +3,7 @@ from django.db import models
 
 class Team(models.Model):
 	employee = models.CharField(null=True,max_length=20)
-	qulification = models.CharField(null=True,max_length=20)
+	qualification = models.CharField(null=True,max_length=20)
 	employee_pic = models.ImageField(null=True,blank=True)
 
  	def __unicode__(self):

@@ -5,14 +5,14 @@ from django.http import HttpResponse
 def AddTeam(request):
 	jsonobj=json.loads(request.body)
     
-	qulification = jsonobj.get("qulification")
+	qualification = jsonobj.get("qualification")
 	employee_pic = jsonobj.get('employee_pic')
 	employee = jsonobj.get('employee') 
 
 	try:
 		team = Team()
 		team.employee = employee
-		team.qulification = qulification
+		team.qualification = qualification
 		team.employee_pic = employee_pic
 		team.save()
 		return HttpResponse(json.dumps({"validation":"Team registraction is succefully","status":True}), content_type="application/json")
@@ -29,7 +29,7 @@ def get_team(request):
 		print team
 	
 		employee = {	"employee":team.employee,
-						"qulification" : team.qulification,
+						"qualification" : team.qualification,
 						"employee_pic" : team.employee_pic.url
 
 		}
