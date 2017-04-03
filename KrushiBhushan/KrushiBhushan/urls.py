@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from views import * 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^add/team/',AddTeam),
+    url(r'^get/team/member/',get_team),
+    url(r'^add/contact/',add_contact),
+    url(r'^get/contact/',get_contact),
+
 ]
