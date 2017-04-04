@@ -21,25 +21,19 @@ def add_product(request):
 
 
 def get_all_products(request):
-	jsonobj=json.loads(request.body)
-    
-	print jsonobj
-
+	
 	products = Products.objects.all()
 
 	data=[]
 	for i in products:
 		products_list={"product_id":i.id,"product_name":i.product_name,"product_description":i.description,"product_image":i.image.url}
 		data.append(products_list)
-	print data
 	return HttpResponse(json.dumps({"status":True, "product_list":data}), content_type="application/json")
 
 
 
 def slider(request):
-	jsonobj = json.loads(request.body)
-	print jsonobj
-
+	
 	slider_images = Image.objects.filter(img_type = 1)
 	data=[]
 	for i in slider_images:
@@ -50,9 +44,7 @@ def slider(request):
 
 
 def gallery(request):
-	jsonobj = json.loads(request.body)
-	print jsonobj
-
+	
 	gallery_images = Image.objects.filter(img_type = 2)
 	data=[]
 	for i in gallery_images:
@@ -131,4 +123,17 @@ def get_contact(request):
 		}
 		contact_list.append(contact_detail)
 	return HttpResponse(json.dumps({"validation":"Contact list Details:","status":True,"contact_detail":contact_list}), content_type="application/json")
+
+
+def get_menu(request):
+	menus = Menu.objects.all()
+	menu_list = []
+	for menu in menus:
+		menu = {
+				"title":menu.title,
+				"url":menu.url
+		}
+		menu_list.append(menu)
+	return HttpResponse(json.dumps({"validation":"Menu list:","status":True,"menu":menu_list}), content_type="application/json")
+		
 

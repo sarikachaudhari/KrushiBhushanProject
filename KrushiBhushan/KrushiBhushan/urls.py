@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^get/team/member/',get_team),
     url(r'^add/contact/',add_contact),
     url(r'^get/contact/',get_contact),
+    url(r'^get/menu/',get_menu),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
