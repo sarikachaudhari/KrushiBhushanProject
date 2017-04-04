@@ -15,14 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from views import * 
+from .views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^add/product/$', add_product),
+    url(r'^all/product/$', get_all_products),
+    url(r'^slider/$', slider),
+    url(r'^gallery/$', gallery),
     url(r'^add/team/',AddTeam),
     url(r'^get/team/member/',get_team),
     url(r'^add/contact/',add_contact),
     url(r'^get/contact/',get_contact),
-   
 
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
